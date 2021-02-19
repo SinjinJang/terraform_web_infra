@@ -29,7 +29,10 @@ Terraform을 이용하여 AWS EC2 인스턴스를 생성하는 예제입니다.
       aws_access_key_id = <AWS_ACCESS_KEY_ID>
       aws_secret_access_key = <AWS_SECRET_ACCESS_KEY>
       ```
-
+    * __IMPORTANT__: IAM 키 정보를 provider.tf 파일 내 provider 선언 시 직접 작성할 수도 있습니다.
+      다만 보안을 위해서라도, 버전 관리될 소스 코드에는 키 정보를 입력하지 않는 것이 좋으며,
+      만약 해당 코드를 github 등에 올릴 경우 키 정보 유출로 인해 AWS에서 연락을 받으실 수 있습니다.
+      
 * AWS EC2 인스턴스 생성
   ```
   terraform init
@@ -40,6 +43,8 @@ Terraform을 이용하여 AWS EC2 인스턴스를 생성하는 예제입니다.
   ```
   terraform destroy
   ```
+  * __NOTE__: 테스트 목적으로 생성된 인스턴스를 그대로 두실 경우 계속 과금이 될 수 있습니다.
+    사용이 끝난 인스턴스는 꼭 종료(destroy)를 해주시기 바랍니다.
 
 ---
 
